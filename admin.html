@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Admin</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+<style>
+
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+    <h4 class="text-primary mb-4">
+        <i class="bi bi-hospital"></i> Admin
+    </h4>
+
+    <!-- DASHBOARD -->
+    <a href="#" class="menu-item active">
+        <i class="bi bi-speedometer2"></i> Dashboard
+    </a>
+
+    <a href="utilisateur.html" class="menu-item">
+        <i class="bi bi-people"></i> Gestion Utilisateurs
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-calendar-check"></i> Rendez-vous
+    </a>
+
+     <a href="#" class="menu-item">
+        <i class="bi bi-clipboard2-pulse"></i> Consultations
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-door-open"></i> Admissions
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-flask"></i> Examens
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-heart-pulse"></i> Tri
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-gear"></i> Profil
+    </a>
+
+    <a href="#" class="menu-item text-danger">
+        <i class="bi bi-box-arrow-right"></i> Déconnexion
+    </a>
+
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <!-- TOPBAR -->
+    <div class="topbar d-flex justify-content-between align-items-center">
+
+        <h5>Bienvenue, Admin 👋</h5>
+
+        <div class="d-flex gap-3 align-items-center">
+
+            <!-- BOUTON RECHERCHE PATIEN -->
+            <a href="formRecherchPatient.html"><button class="btn btn-primary btn-modern" title="Rechercher un patient">
+                <i class="bi bi-search"></i>
+            </button></a>
+
+            <!-- BOUTON AJOUT PATIENT -->
+            <a href="formAjoutPatient.html"><button class="btn btn-primary btn-modern" title="Ajouter un patient">
+                <i class="bi bi-person-plus"></i>
+            </button></a>
+
+            <i class="bi bi-bell fs-5"></i>
+            <i class="bi bi-person-circle fs-4"></i>
+
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-3">
+            <div class="stat-card">
+                <p>Total Utilisateurs</p>
+                <h3>124</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="stat-card">
+                <p>Patients Enregistrés</p>
+                <h3>578</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="stat-card">
+                <p>Rendez-vous du jour</p>
+                <h3>22</h3>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="stat-card">
+                <p>Admissions Actives</p>
+                <h3>14</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABLE -->
+    <div class="table-container">
+        <h5 class="mb-3">Admissions Récentes</h5>
+
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Service</th>
+                        <th>Date</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Moussa Faye</td>
+                        <td>Cardiologie</td>
+                        <td>29 Avril 2026</td>
+                        <td><span class="badge badge-soft-success">Confirmé</span></td>
+                    </tr>
+                    <tr>
+                        <td>Fatou Mbaye</td>
+                        <td>Urgence</td>
+                        <td>29 Avril 2026</td>
+                        <td><span class="badge badge-soft-warning">En attente</span></td>
+                    </tr>
+                    <tr>
+                        <td>Abdou Diop</td>
+                        <td>Chirurgie</td>
+                        <td>28 Avril 2026</td>
+                        <td><span class="badge badge-soft-danger">Urgent</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

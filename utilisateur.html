@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+    <title>Utilisateurs </title>
+    <style>
+
+        /* LAYOUT */
+body {
+    background: #F8FAFC;
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+}
+
+/* SIDEBAR */
+.sidebar {
+    width: 240px;
+    height: 100vh;
+    position: fixed;
+    left: 0;
+    top: 0;
+    background: white;
+    padding: 25px 20px;
+    border-right: 1px solid #E2E8F0;
+}
+
+/* MENU ITEMS */
+.menu-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 12px;
+    border-radius: 10px;
+    text-decoration: none;
+    color: #334155;
+    margin-bottom: 8px;
+    transition: 0.2s;
+}
+
+.menu-item:hover {
+    background: #F1F5F9;
+}
+
+.menu-item.active {
+    background: linear-gradient(135deg, #2563EB, #1D4ED8);
+    color: white;
+}
+
+/* MAIN CONTENT */
+.main-content {
+    margin-left: 240px;
+    padding: 40px;
+}
+
+/* CARD */
+.user-card {
+    background: white;
+    border-radius: 22px;
+    padding: 30px;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.05);
+}
+
+/* TITRE */
+.page-title {
+    font-weight: 700;
+    color: #2563EB;
+}
+
+/* TABLE */
+.modern-table thead {
+    background: #F1F5F9;
+}
+
+.modern-table tbody tr {
+    transition: 0.2s;
+}
+
+.modern-table tbody tr:hover {
+    background: #F9FAFB;
+}
+
+/* INPUT */
+.modern-input {
+    border-radius: 12px;
+    border: 1px solid #E2E8F0;
+    padding: 9px 12px;
+    background: #F9FAFB;
+}
+
+/* GROUP */
+.modern-group {
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+/* BADGES ROLES */
+.role-admin {
+    background: #FEE2E2;
+    color: #DC2626;
+}
+
+.role-generaliste {
+    background: #DBEAFE;
+    color: #1D4ED8;
+}
+
+.role-specialiste {
+    background: #EDE9FE;
+    color: #6D28D9;
+}
+
+.role-infirmier {
+    background: #DCFCE7;
+    color: #16A34A;
+}
+
+/* ACTION BUTTON */
+.btn-action {
+    background: #F1F5F9;
+    border-radius: 10px;
+    padding: 6px 10px;
+    border: none;
+}
+
+.btn-action:hover {
+    background: #E2E8F0;
+}
+
+/* BOUTON PRINCIPAL */
+.btn-primary-modern {
+    background: linear-gradient(135deg, #2563EB, #1D4ED8);
+    border: none;
+    border-radius: 40px;
+    padding: 8px 20px;
+    font-weight: 600;
+    color: white;
+}
+
+/* TABLE HEAD */
+.modern-table thead {
+    background: #F8FAFC;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+.modern-table thead th {
+    border-bottom: 1px solid #E2E8F0;
+    padding: 16px;
+}
+
+/* TABLE BODY */
+.modern-table tbody tr {
+    transition: all 0.2s ease;
+}
+
+.modern-table tbody tr:hover {
+    background: #F9FAFB;
+}
+
+.modern-table td {
+    padding: 16px;
+    border-top: 1px solid #F1F5F9;
+}
+
+/* AVATAR */
+.avatar {
+    width: 38px;
+    height: 38px;
+    border-radius: 50%;
+    background: #DBEAFE;
+    color: #1D4ED8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 14px;
+}
+
+/* ROLE BADGE */
+.role-badge {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+/* ACTION ICON */
+.btn-icon {
+    background: #F1F5F9;
+    border-radius: 8px;
+    padding: 6px 10px;
+    border: none;
+    margin-left: 5px;
+    transition: 0.2s;
+}
+
+.btn-icon:hover {
+    background: #E2E8F0;
+}
+    </style>
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+<div class="sidebar">
+
+    <h4 class="text-primary mb-4">
+        <i class="bi bi-hospital"></i> Admin
+    </h4>
+
+    <!-- DASHBOARD -->
+    <a href="#" class="menu-item active">
+        <i class="bi bi-speedometer2"></i> Dashboard
+    </a>
+
+    <a href="utilisateur.html" class="menu-item">
+        <i class="bi bi-people"></i> Gestion Utilisateurs
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-calendar-check"></i> Rendez-vous
+    </a>
+
+     <a href="#" class="menu-item">
+        <i class="bi bi-clipboard2-pulse"></i> Consultations
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-door-open"></i> Admissions
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-flask"></i> Examens
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-heart-pulse"></i> Tri
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-gear"></i> Profil
+    </a>
+
+    <a href="#" class="menu-item text-danger">
+        <i class="bi bi-box-arrow-right"></i> Déconnexion
+    </a>
+
+</div>
+
+    <div class="main-content">
+
+    <div class="user-card">
+
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h4 class="page-title">
+                <i class="bi bi-people-fill"></i> Gestion des utilisateurs
+            </h4>
+
+            <button class="btn btn-primary-modern">
+                <i class="bi bi-person-plus"></i> Nouvel utilisateur
+            </button>
+        </div>
+
+        <!-- BARRE DE RECHERCHE -->
+        <div class="search-bar mb-4">
+            <div class="input-group modern-group">
+                <span class="input-group-text">
+                    <i class="bi bi-search"></i>
+                </span>
+                <input type="text" class="form-control modern-input"
+                    placeholder="Rechercher par nom d'utilisateur...">
+            </div>
+        </div>
+
+        <!-- TABLE -->
+        <div class="table-responsive">
+    <table class="table modern-table align-middle mb-0">
+        <thead>
+            <tr>
+                <th>Utilisateur</th>
+                <th>Nom d'utilisateur</th>
+                <th>Rôle</th>
+                <th class="text-end">Actions</th>
+            </tr>
+        </thead>
+
+        <tbody>
+
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">AS</div>
+                        <div>
+                            <div class="fw-semibold">Dr Adama SANE</div>
+                            <small class="text-muted">Cardiologie</small>
+                        </div>
+                    </div>
+                </td>
+
+                <td class="text-muted">adama.sane</td>
+
+                <td>
+                    <span class="role-badge role-generaliste">
+                        Médecin Généraliste
+                    </span>
+                </td>
+
+                <td class="text-end">
+                    <button class="btn btn-icon" title="Infos">
+                        <i class="bi bi-info-circle" ></i>
+                    </button>
+
+                    <button class="btn btn-icon" title="Modifier">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                </td>
+            </tr>
+
+
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar bg-danger-subtle text-danger">IS</div>
+                        <div>
+                            <div class="fw-semibold">Issa Seck</div>
+                            <small class="text-muted">Administration</small>
+                        </div>
+                    </div>
+                </td>
+
+                <td class="text-muted">admin</td>
+
+                <td>
+                    <span class="role-badge role-admin">
+                        Administrateur
+                    </span>
+                </td>
+
+                <td class="text-end">
+                    <button class="btn btn-icon">
+                        <i class="bi bi-info-circle"></i>
+                    </button>
+
+                    <button class="btn btn-icon">
+                        <i class="bi bi-pencil-square"></i>
+                    </button>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</div>
+        </div>
+
+    </div>
+</div>
+</body>
+</html>

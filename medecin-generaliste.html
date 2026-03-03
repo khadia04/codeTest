@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Médecin Généraliste</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<style>
+body {
+    background-color: #F4F7FE;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+.sidebar {
+    background: linear-gradient(180deg, #ffffff, #f4f7ff);
+    border-right: 1px solid #eaeaea;
+}
+
+.sidebar a.active {
+    background: linear-gradient(90deg, #4A90E2, #6C63FF);
+    color: white !important;
+}
+
+.sidebar a.active i {
+    color: white;
+}
+.sidebar {
+    background: linear-gradient(180deg, #ffffff, #f4f7ff);
+    border-right: 1px solid #eaeaea;
+}
+
+.sidebar a.active {
+    background: linear-gradient(90deg, #4A90E2, #6C63FF);
+    color: white !important;
+}
+
+.sidebar a.active i {
+    color: white;
+}
+/* SIDEBAR */
+.sidebar {
+    height: 100vh;
+    background: white;
+    padding: 25px 15px;
+    box-shadow: 4px 0 20px rgba(0,0,0,0.03);
+    position: fixed;
+    width: 250px;
+}
+
+.sidebar h4 {
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+
+.sidebar a {
+    display: flex;
+    align-items: center;
+    padding: 12px 15px;
+    border-radius: 12px;
+    text-decoration: none;
+    color: #555;
+    margin-bottom: 8px;
+    transition: 0.3s;
+}
+
+.sidebar a:hover {
+    background: #E9F2FF;
+    color: #198754;
+}
+
+.sidebar a i {
+    margin-right: 10px;
+}
+
+/* MAIN */
+.main-content {
+    margin-left: 260px;
+    padding: 30px;
+}
+
+/* TOPBAR */
+.topbar {
+    background: white;
+    padding: 15px 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+    margin-bottom: 30px;
+}
+
+/* CARDS */
+.stat-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+    transition: 0.3s;
+}
+
+.stat-card:hover {
+    transform: translateY(-4px);
+}
+
+.stat-card h3 {
+    font-weight: bold;
+}
+
+/* TABLE */
+.table-container {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 5px 20px rgba(0,0,0,0.04);
+}
+
+.badge-soft-success {
+    background: #E6F9F0;
+    color: #27AE60;
+}
+
+.badge-soft-warning {
+    background: #FFF4E5;
+    color: #F39C12;
+}
+
+.badge-soft-info {
+    background: #EAF4FF;
+    color: #0d6efd;
+}
+
+@media (max-width: 992px) {
+    .sidebar {
+        display: none;
+    }
+    .main-content {
+        margin-left: 0;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+    <h4 class="text-success">
+        <i class="bi bi-person-badge"></i> Médecin Généraliste
+    </h4>
+
+    <a href="#"><i class="bi bi-speedometer2"></i> Dashboard</a>
+    <a href="#"><i class="bi bi-person"></i> Mes Patients</a>
+    <a href="#"><i class="bi bi-clipboard2-pulse"></i> Mes Consultations</a>
+    <a href="#"><i class="bi bi-file-earmark-medical"></i> Prescriptions</a>
+    <a href="#"><i class="bi bi-search"></i> Examens Demandés</a>
+    <a href="#"><i class="bi bi-door-open"></i> Admissions</a>
+
+    <hr>
+
+    <a href="#" class="text-danger">
+        <i class="bi bi-box-arrow-right"></i> Déconnexion
+    </a>
+</div>
+
+<!-- MAIN CONTENT -->
+<div class="main-content">
+
+    <!-- TOPBAR -->
+    <div class="topbar d-flex justify-content-between align-items-center">
+        <h5>Bienvenue, Dr Généraliste 👋</h5>
+        <div class="d-flex gap-3">
+            <input type="text" class="form-control" placeholder="Rechercher patient...">
+            <i class="bi bi-bell fs-5"></i>
+            <i class="bi bi-person-circle fs-4"></i>
+        </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="row g-4 mb-4">
+        <div class="col-md-4">
+            <div class="stat-card">
+                <p>Patients Aujourd’hui</p>
+                <h3>18</h3>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="stat-card">
+                <p>Consultations en Attente</p>
+                <h3>5</h3>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="stat-card">
+                <p>Examens Demandés</p>
+                <h3>9</h3>
+            </div>
+        </div>
+    </div>
+
+    <!-- TABLE RDV -->
+    <div class="table-container">
+        <h5 class="mb-3">Consultations du Jour</h5>
+
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Heure</th>
+                        <th>Motif</th>
+                        <th>Statut</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Fatou Ndiaye</td>
+                        <td>09:30</td>
+                        <td>Fièvre</td>
+                        <td><span class="badge badge-soft-warning">En attente</span></td>
+                    </tr>
+                    <tr>
+                        <td>Mamadou Diallo</td>
+                        <td>10:15</td>
+                        <td>Douleur thoracique</td>
+                        <td><span class="badge badge-soft-info">En consultation</span></td>
+                    </tr>
+                    <tr>
+                        <td>Aminata Fall</td>
+                        <td>11:00</td>
+                        <td>Contrôle général</td>
+                        <td><span class="badge badge-soft-success">Terminé</span></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
