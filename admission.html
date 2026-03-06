@@ -1,0 +1,431 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<title>Admissions</title>
+
+<style>
+
+/* LAYOUT */
+
+body{
+background:#F8FAFC;
+font-family:Inter,sans-serif;
+margin:0;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:240px;
+height:100vh;
+position:fixed;
+left:0;
+top:0;
+background:white;
+padding:25px 20px;
+border-right:1px solid #E2E8F0;
+}
+
+.menu-item{
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px 12px;
+border-radius:10px;
+text-decoration:none;
+color:#334155;
+margin-bottom:8px;
+transition:.2s;
+}
+
+.menu-item:hover{
+background:#F1F5F9;
+}
+
+.menu-item.active{
+background:linear-gradient(135deg,#2563EB,#1D4ED8);
+color:white;
+}
+
+/* MAIN CONTENT */
+
+.main-content{
+margin-left:240px;
+padding:40px;
+}
+
+/* CARD */
+
+.user-card{
+background:white;
+border-radius:20px;
+padding:30px;
+box-shadow:0 20px 45px rgba(0,0,0,0.05);
+}
+
+/* TITRE */
+
+.page-title{
+font-weight:700;
+color:#2563EB;
+}
+
+/* FILTRE */
+
+.filter-container{
+background:#F8FAFC;
+padding:18px;
+border-radius:12px;
+border:1px solid #E2E8F0;
+}
+
+/* INPUT */
+
+.modern-input{
+border-radius:10px;
+border:1px solid #E2E8F0;
+background:white;
+}
+
+/* TABLE */
+
+.modern-table thead{
+background:#F8FAFC;
+font-weight:600;
+}
+
+.modern-table td{
+padding:14px;
+}
+
+.modern-table tbody tr{
+transition:.2s;
+}
+
+.modern-table tbody tr:hover{
+background:#F1F5F9;
+}
+
+/* BOUTONS */
+
+.btn-icon{
+width:34px;
+height:34px;
+border-radius:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+border:none;
+transition:.2s;
+}
+
+.btn-icon:hover{
+transform:translateY(-2px);
+box-shadow:0 5px 10px rgba(0,0,0,.08);
+}
+
+/* COULEURS ACTIONS */
+
+.btn-info{
+background:#2563EB;
+color:white;
+}
+
+.btn-warning{
+background:#FACC15;
+}
+
+.btn-success{
+background:#22C55E;
+color:white;
+}
+
+.btn-danger{
+background:#EF4444;
+color:white;
+}
+
+/* BOUTON FILTRE */
+
+.btn-filter-primary{
+background:#2563EB;
+color:white;
+}
+
+.btn-filter-danger{
+background:#EF4444;
+color:white;
+}
+
+/* ANIMATION */
+
+.fade-in{
+animation:fadeIn .4s ease;
+}
+
+@keyframes fadeIn{
+from{opacity:0;transform:translateY(10px)}
+to{opacity:1;transform:translateY(0)}
+}
+
+/* ACTIONS */
+
+.action-group{
+display:flex;
+justify-content:flex-end;
+gap:8px;
+}
+
+.btn-action{
+width:34px;
+height:34px;
+border-radius:8px;
+display:flex;
+align-items:center;
+justify-content:center;
+border:none;
+color:white;
+transition:0.2s;
+}
+
+.btn-action:hover{
+transform:translateY(-2px);
+box-shadow:0 5px 10px rgba(0,0,0,0.1);
+}
+
+/* COULEURS */
+
+.btn-info{
+background:#3B82F6;
+}
+
+.btn-warning{
+background:#F59E0B;
+}
+
+.btn-success{
+background:#22C55E;
+}
+
+.btn-danger{
+background:#EF4444;
+}
+
+.modern-table{
+border-collapse:separate;
+border-spacing:0 8px;
+}
+
+.modern-table tbody tr{
+background:white;
+border-radius:10px;
+box-shadow:0 2px 6px rgba(0,0,0,0.03);
+}
+
+.modern-table td{
+vertical-align:middle;
+}
+
+.patient-info{
+display:flex;
+align-items:center;
+gap:10px;
+}
+
+.patient-avatar{
+width:35px;
+height:35px;
+border-radius:50%;
+background:#DBEAFE;
+color:#1D4ED8;
+display:flex;
+align-items:center;
+justify-content:center;
+font-weight:600;
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+
+<div class="sidebar">
+
+<h4 class="text-primary mb-4">
+<i class="bi bi-hospital"></i> Admin
+</h4>
+
+<a href="#" class="menu-item">
+<i class="bi bi-speedometer2"></i> Dashboard
+</a>
+
+<a href="utilisateur.html" class="menu-item">
+<i class="bi bi-people"></i> Gestion Utilisateurs
+</a>
+
+<a href="#" class="menu-item">
+<i class="bi bi-calendar-check"></i> Rendez-vous
+</a>
+
+<a href="consultation.html" class="menu-item">
+<i class="bi bi-clipboard2-pulse"></i> Consultations
+</a>
+
+<a href="admission.html" class="menu-item active">
+<i class="bi bi-door-open"></i> Admissions
+</a>
+
+<a href="#" class="menu-item">
+<i class="bi bi-flask"></i> Examens
+</a>
+
+<a href="#" class="menu-item">
+<i class="bi bi-heart-pulse"></i> Tri
+</a>
+
+<a href="#" class="menu-item">
+<i class="bi bi-gear"></i> Profil
+</a>
+
+<a href="#" class="menu-item text-danger">
+<i class="bi bi-box-arrow-right"></i> Déconnexion
+</a>
+
+</div>
+
+
+<!-- CONTENT -->
+
+<div class="main-content fade-in">
+
+<div class="user-card">
+
+<h4 class="page-title mb-4">
+<i class="bi bi-door-open"></i> Liste des Admissions
+</h4>
+
+<!-- FILTRES -->
+
+<div class="filter-container">
+
+<div class="row g-3">
+
+<div class="col-md-2">
+<select class="form-select modern-input">
+<option>Urgence</option>
+<option>Cardiologie</option>
+<option>Orthopédie</option>
+</select>
+</div>
+
+<div class="col-md-2">
+<select class="form-select modern-input">
+<option>Tous</option>
+<option>Admis</option>
+<option>Sortie</option>
+</select>
+</div>
+
+<div class="col-md-3">
+<input type="text" class="form-control modern-input" placeholder="Rechercher patient">
+</div>
+
+<div class="col-md-2">
+<input type="date" class="form-control modern-input">
+</div>
+
+<div class="col-md-3 d-flex gap-2">
+
+<button class="btn btn-icon btn-filter-primary" title="Filtrer">
+<i class="bi bi-funnel"></i>
+</button>
+
+<button class="btn btn-icon btn-filter-danger" title="Effacer">
+<i class="bi bi-x-circle"></i>
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- TABLE -->
+
+<div class="table-responsive mt-4">
+
+<table class="table modern-table">
+
+<thead>
+
+<tr>
+<th>ID</th>
+<th>Prénom</th>
+<th>Nom</th>
+<th>Téléphone</th>
+<th>Age</th>
+<th>Date Admission</th>
+<th>Par</th>
+<th class="text-end">Actions</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+
+<td>150000</td>
+<td>Isseu</td>
+<td>Diop</td>
+<td>776788789</td>
+<td>26 ans</td>
+<td>02/03/2026 14:40</td>
+<td>Khardiata Thiam</td>
+
+<td class="text-end">
+
+<div class="action-group">
+
+<a href="infosPatient.html"><button class="btn-action btn-info" title="Infos">
+<i class="bi bi-info-circle"></i>
+</button></a>
+
+<button class="btn-action btn-warning" title="Modifier">
+<i class="bi bi-pencil-square"></i>
+</button>
+
+<button class="btn-action btn-success" title="Dossier patient">
+<i class="bi bi-folder2-open"></i>
+</button>
+
+<button class="btn-action btn-danger" title="Sortir patient">
+<i class="bi bi-box-arrow-right"></i>
+</button>
+
+</div>
+
+</td>
+
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

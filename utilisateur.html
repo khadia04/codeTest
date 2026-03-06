@@ -202,6 +202,71 @@ body {
 .btn-icon:hover {
     background: #E2E8F0;
 }
+
+/* BARRE FILTRE */
+
+.filter-bar{
+background:#F8FAFC;
+padding:12px;
+border-radius:12px;
+border:1px solid #E2E8F0;
+}
+
+/* BOUTONS FILTRES */
+
+.modern-filter .btn{
+border-radius:10px;
+padding:6px 14px;
+font-size:14px;
+}
+
+/* INPUT */
+
+.modern-input{
+border-radius:10px;
+border:1px solid #E2E8F0;
+background:#F9FAFB;
+}
+
+/* HOVER */
+
+.btn-outline-secondary:hover{
+background:#F1F5F9;
+}
+
+.role-secretaire{
+background:#FEF3C7;
+color:#D97706;
+}
+
+.role-specialiste{
+background:#EDE9FE;
+color:#6D28D9;
+}
+
+.role-infirmier{
+background:#DCFCE7;
+color:#16A34A;
+}
+
+/* PAGINATION */
+
+.modern-pagination .page-link{
+border:none;
+color:#334155;
+border-radius:8px;
+margin:0 3px;
+padding:6px 12px;
+}
+
+.modern-pagination .page-link:hover{
+background:#F1F5F9;
+}
+
+.modern-pagination .active .page-link{
+background:linear-gradient(135deg,#2563EB,#1D4ED8);
+color:white;
+}
     </style>
 </head>
 <body>
@@ -226,11 +291,11 @@ body {
         <i class="bi bi-calendar-check"></i> Rendez-vous
     </a>
 
-     <a href="#" class="menu-item">
+     <a href="consultation.html" class="menu-item">
         <i class="bi bi-clipboard2-pulse"></i> Consultations
     </a>
 
-    <a href="#" class="menu-item">
+    <a href="admission.html" class="menu-item">
         <i class="bi bi-door-open"></i> Admissions
     </a>
 
@@ -266,26 +331,67 @@ body {
             </button>
         </div>
 
-        <!-- BARRE DE RECHERCHE -->
-        <div class="search-bar mb-4">
-            <div class="input-group modern-group">
-                <span class="input-group-text">
-                    <i class="bi bi-search"></i>
-                </span>
-                <input type="text" class="form-control modern-input"
-                    placeholder="Rechercher par nom d'utilisateur...">
-            </div>
+                <!-- FILTRES -->
+        <div class="filter-bar mb-3">
+
+        <div class="d-flex flex-wrap gap-3 align-items-center">
+
+        <div class="btn-group modern-filter">
+
+        <button class="btn btn-outline-secondary">
+        <i class="bi bi-sort-alpha-down"></i>
+        Croissant
+        </button>
+
+        <button class="btn btn-outline-secondary">
+        <i class="bi bi-sort-alpha-up"></i>
+        Décroissant
+        </button>
+
         </div>
+
+        <div class="flex-grow-1">
+
+        <div class="input-group modern-group">
+
+        <span class="input-group-text">
+        <i class="bi bi-search"></i>
+        </span>
+
+        <input type="text"
+        class="form-control modern-input"
+        placeholder="Rechercher par nom d'utilisateur">
+
+        </div>
+
+        </div>
+
+        <button class="btn btn-outline-primary">
+        <i class="bi bi-funnel"></i>
+        Trier / Filtrer
+        </button>
+
+        <button class="btn btn-outline-danger">
+        <i class="bi bi-x-circle"></i>
+        Tout effacer
+        </button>
+
+        </div>
+
+        </div>
+
+        
 
         <!-- TABLE -->
         <div class="table-responsive">
     <table class="table modern-table align-middle mb-0">
         <thead>
             <tr>
-                <th>Utilisateur</th>
-                <th>Nom d'utilisateur</th>
-                <th>Rôle</th>
-                <th class="text-end">Actions</th>
+            <th>Utilisateur</th>
+            <th>Nom d'utilisateur</th>
+            <th>Service</th>
+            <th>Rôle</th>
+            <th class="text-end">Actions</th>
             </tr>
         </thead>
 
@@ -311,13 +417,13 @@ body {
                 </td>
 
                 <td class="text-end">
-                    <button class="btn btn-icon" title="Infos">
+                    <a href="detailsUser.html"><button class="btn btn-icon" title="Infos">
                         <i class="bi bi-info-circle" ></i>
-                    </button>
+                    </button></a>
 
-                    <button class="btn btn-icon" title="Modifier">
+                    <a href="modifUser.html"><button class="btn btn-icon" title="Modifier">
                         <i class="bi bi-pencil-square"></i>
-                    </button>
+                    </button></a>
                 </td>
             </tr>
 
@@ -352,8 +458,141 @@ body {
                 </td>
             </tr>
 
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">ID</div>
+                        <div>
+                            <div class="fw-semibold">Dr Isseu Diagne</div>
+                            <small class="text-muted">Orthopedie</small>
+                        </div>
+                    </div>
+                </td>
+
+                <td class="text-muted">isseu.diagne</td>
+
+                <td>
+                    <span class="role-badge role-specialiste">
+                        Médecin Specialiste
+                    </span>
+                </td>
+
+                <td class="text-end">
+                    <a href="detailsUser.html"><button class="btn btn-icon" title="Infos">
+                        <i class="bi bi-info-circle" ></i>
+                    </button></a>
+
+                    <a href="modifUser.html"><button class="btn btn-icon" title="Modifier">
+                        <i class="bi bi-pencil-square"></i>
+                    </button></a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">AY</div>
+                        <div>
+                            <div class="fw-semibold">Aïssatou Yatte</div>
+                            <small class="text-muted">Urgence</small>
+                        </div>
+                    </div>
+                </td>
+
+                <td class="text-muted">aissatou.yatte</td>
+
+                <td>
+                    <span class="role-badge role-infirmier">
+                        Infirmier
+                    </span>
+                </td>
+
+                <td class="text-end">
+                    <a href="detailsUser.html"><button class="btn btn-icon" title="Infos">
+                        <i class="bi bi-info-circle" ></i>
+                    </button></a>
+
+                    <a href="modifUser.html"><button class="btn btn-icon" title="Modifier">
+                        <i class="bi bi-pencil-square"></i>
+                    </button></a>
+                </td>
+            </tr>
+
+            <tr>
+                <td>
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="avatar">KT</div>
+                        <div>
+                            <div class="fw-semibold">Khardiata Thiam</div>
+                            <small class="text-muted">Cardiologie</small>
+                        </div>
+                    </div>
+                </td>
+
+                <td class="text-muted">khardiata.thiam</td>
+
+                <td>
+                    <span class="role-badge role-secretaire">
+                        Secretaire
+                    </span>
+                </td>
+
+                <td class="text-end">
+                    <a href="detailsUser.html"><button class="btn btn-icon" title="Infos">
+                        <i class="bi bi-info-circle" ></i>
+                    </button></a>
+
+                    <a href="modifUser.html"><button class="btn btn-icon" title="Modifier">
+                        <i class="bi bi-pencil-square"></i>
+                    </button></a>
+                </td>
+            </tr>
+
         </tbody>
     </table>
+
+    <!-- PAGINATION -->
+<div class="d-flex justify-content-between align-items-center mt-4">
+
+<div class="text-muted small">
+Affichage 1 à 4 sur 24 utilisateurs
+</div>
+
+<nav>
+<ul class="pagination modern-pagination mb-0">
+
+<li class="page-item disabled">
+<a class="page-link" href="#">
+<i class="bi bi-chevron-left"></i>
+</a>
+</li>
+
+<li class="page-item active">
+<a class="page-link" href="#">1</a>
+</li>
+
+<li class="page-item">
+<a class="page-link" href="#">2</a>
+</li>
+
+<li class="page-item">
+<a class="page-link" href="#">3</a>
+</li>
+
+<li class="page-item">
+<a class="page-link" href="#">4</a>
+</li>
+
+<li class="page-item">
+<a class="page-link" href="#">
+<i class="bi bi-chevron-right"></i>
+</a>
+</li>
+
+</ul>
+</nav>
+
+</div>
 </div>
         </div>
 

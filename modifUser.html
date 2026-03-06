@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+        <link rel="stylesheet" href="style.css">
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <title>modification user</title>
+    <style>
+        /* LAYOUT */
+
+body{
+background:#F8FAFC;
+font-family:'Inter',sans-serif;
+margin:0;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:240px;
+height:100vh;
+position:fixed;
+left:0;
+top:0;
+background:white;
+padding:25px 20px;
+border-right:1px solid #E2E8F0;
+}
+
+/* MENU */
+
+.menu-item{
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px 12px;
+border-radius:10px;
+text-decoration:none;
+color:#334155;
+margin-bottom:8px;
+transition:0.2s;
+}
+
+.menu-item:hover{
+background:#F1F5F9;
+}
+
+.menu-item.active{
+background:linear-gradient(135deg,#2563EB,#1D4ED8);
+color:white;
+}
+
+/* CONTENU */
+
+.main-content{
+margin-left:240px;
+padding:40px;
+}
+        .modern-card{
+border-radius:18px;
+border:none;
+box-shadow:0 15px 35px rgba(0,0,0,0.05);
+}
+
+.section-header{
+background:#F8FAFC;
+font-weight:600;
+font-size:16px;
+}
+
+.modern-input{
+border-radius:12px;
+border:1px solid #E2E8F0;
+padding:10px 12px;
+background:#F9FAFB;
+}
+
+.modern-input:focus{
+border-color:#2563EB;
+box-shadow:0 0 0 3px rgba(37,99,235,0.1);
+}
+
+.role-title{
+font-weight:600;
+margin-bottom:15px;
+}
+
+.role-switch{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#F8FAFC;
+padding:10px 14px;
+border-radius:10px;
+margin-bottom:10px;
+}
+
+.btn-modern{
+border-radius:10px;
+padding:10px 22px;
+font-weight:500;
+}
+
+/* PHOTO UTILISATEUR */
+
+.user-photo-section{
+display:flex;
+align-items:center;
+gap:20px;
+margin-bottom:30px;
+}
+
+.avatar-wrapper{
+position:relative;
+width:90px;
+height:90px;
+}
+
+.avatar-img{
+width:90px;
+height:90px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #F1F5F9;
+transition:0.3s;
+}
+
+.avatar-img:hover{
+transform:scale(1.05);
+}
+
+.avatar-upload{
+position:absolute;
+bottom:0;
+right:0;
+background:#2563EB;
+color:white;
+width:30px;
+height:30px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+font-size:14px;
+}
+
+.form-label{
+font-weight:500;
+color:#334155;
+font-size:14px;
+margin-bottom:6px;
+}
+
+.role-switch{
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:#F8FAFC;
+padding:10px 14px;
+border-radius:10px;
+margin-bottom:10px;
+transition:0.2s;
+}
+
+.role-switch:hover{
+background:#EEF2FF;
+transform:scale(1.01);
+}
+
+.btn-modern{
+border-radius:10px;
+padding:10px 24px;
+font-weight:500;
+transition:0.2s;
+}
+
+.btn-modern:hover{
+transform:translateY(-1px);
+}
+    </style>
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+<div class="sidebar">
+
+    <h4 class="text-primary mb-4">
+        <i class="bi bi-hospital"></i> Admin
+    </h4>
+
+    <!-- DASHBOARD -->
+    <a href="#" class="menu-item active">
+        <i class="bi bi-speedometer2"></i> Dashboard
+    </a>
+
+    <a href="utilisateur.html" class="menu-item">
+        <i class="bi bi-people"></i> Gestion Utilisateurs
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-calendar-check"></i> Rendez-vous
+    </a>
+
+     <a href="consultation.html" class="menu-item">
+        <i class="bi bi-clipboard2-pulse"></i> Consultations
+    </a>
+
+    <a href="admission.html" class="menu-item">
+        <i class="bi bi-door-open"></i> Admissions
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-flask"></i> Examens
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-heart-pulse"></i> Tri
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-gear"></i> Profil
+    </a>
+
+    <a href="#" class="menu-item text-danger">
+        <i class="bi bi-box-arrow-right"></i> Déconnexion
+    </a>
+
+</div>
+
+    <div class="main-content">
+
+<!-- CARTE INFOS -->
+<div class="card modern-card mb-4">
+
+<div class="card-header section-header">
+    <h3>Modification des Informations </h1>
+<i class="bi bi-person-gear"></i>
+Informations générales
+</div>
+
+<div class="card-body">
+
+<div class="row g-4">
+    <div class="user-photo-section">
+
+    <div class="avatar-wrapper">
+
+        <img src="https://i.pravatar.cc/120" id="avatarPreview" class="avatar-img">
+
+        <label for="avatarUpload" class="avatar-upload">
+            <i class="bi bi-camera"></i>
+        </label>
+
+        <input type="file" id="avatarUpload" hidden>
+
+    </div>
+
+    <div class="avatar-info">
+        <h5 class="mb-1">Photo utilisateur</h5>
+        <small class="text-muted">Cliquez sur l’icône pour modifier</small>
+    </div>
+
+</div>
+
+<div class="col-md-6">
+<label class="form-label">
+<i class="bi bi-person"></i> Nom complet
+</label>
+<input type="text" class="form-control modern-input">
+</div>
+
+<div class="col-md-3">
+<label class="form-label">
+<i class="bi bi-person-badge"></i> Nom utilisateur
+</label>
+<input type="text" class="form-control modern-input">
+</div>
+
+<div class="col-md-3">
+<label class="form-label">
+<i class="bi bi-telephone"></i> Téléphone
+</label>
+<input type="text" class="form-control modern-input">
+</div>
+
+<div class="col-md-6">
+<label class="form-label">
+<i class="bi bi-envelope"></i> Email
+</label>
+<input type="email" class="form-control modern-input">
+</div>
+
+<div class="col-md-6">
+<label class="form-label">
+<i class="bi bi-clipboard-pulse"></i> Spécialités
+</label>
+<input type="text" class="form-control modern-input">
+</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- CARTE ROLES -->
+<div class="card modern-card mb-4">
+
+<div class="card-header section-header">
+<i class="bi bi-shield-check"></i>
+Rôles et services
+</div>
+
+<div class="card-body">
+
+<div class="row">
+
+<div class="col-md-6">
+
+<h6 class="role-title">Rôles utilisateur</h6>
+
+<div class="role-switch">
+<label>Administrateur</label>
+<input type="checkbox" class="form-check-input">
+</div>
+
+<div class="role-switch">
+<label>Infirmier</label>
+<input type="checkbox" class="form-check-input">
+</div>
+
+<div class="role-switch">
+<label>Laborantin</label>
+<input type="checkbox" class="form-check-input">
+</div>
+
+</div>
+
+
+<div class="col-md-6">
+
+<h6 class="role-title">Services</h6>
+
+<div class="role-switch">
+<label>Cardiologie</label>
+<input type="checkbox" class="form-check-input">
+</div>
+
+<div class="role-switch">
+<label>Orthopédie</label>
+<input type="checkbox" class="form-check-input">
+</div>
+
+<div class="role-switch">
+<label>Urgence</label>
+<input type="checkbox" class="form-check-input">
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- ACTIONS -->
+<div class="d-flex gap-3">
+
+<button class="btn btn-warning btn-modern">
+<i class="bi bi-check-circle"></i>
+Actualiser
+</button>
+
+<button class="btn btn-dark btn-modern">
+<i class="bi bi-arrow-left"></i>
+Retour
+</button>
+
+</div>
+
+</div>
+</body>
+</html>

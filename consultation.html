@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+<title>Consultations</title>
+
+<style>
+
+body{
+background:#F8FAFC;
+font-family: 'Inter', sans-serif;
+}
+
+/* CARD */
+
+.consult-card{
+background:white;
+border-radius:20px;
+padding:30px;
+box-shadow:0 15px 40px rgba(0,0,0,0.05);
+}
+
+/* TITLE */
+
+.page-title{
+font-weight:700;
+color:#2563EB;
+}
+
+/* FILTER BAR */
+
+.filter-bar{
+display:flex;
+gap:15px;
+flex-wrap:wrap;
+margin-bottom:25px;
+}
+
+/* INPUT */
+
+.modern-input{
+border-radius:10px;
+border:1px solid #E2E8F0;
+padding:9px 12px;
+background:#F9FAFB;
+}
+
+/* BUTTONS */
+
+.btn-filter{
+border-radius:10px;
+padding:8px 16px;
+}
+
+/* TABLE */
+
+.modern-table thead{
+background:#F1F5F9;
+font-size:14px;
+}
+
+.modern-table td{
+vertical-align:middle;
+}
+
+.modern-table tbody tr:hover{
+background:#F9FAFB;
+}
+
+/* ACTION BUTTON */
+
+.btn-view{
+background:#2563EB;
+color:white;
+border-radius:8px;
+padding:6px 10px;
+}
+
+/* BOUTONS ICONE */
+
+.btn-icon{
+width:38px;
+height:38px;
+display:flex;
+align-items:center;
+justify-content:center;
+border-radius:8px;
+border:none;
+font-size:16px;
+transition:0.2s;
+}
+
+/* FILTRER */
+
+.btn-filter-primary{
+background:#2563EB;
+color:white;
+}
+
+.btn-filter-primary:hover{
+background:#1D4ED8;
+}
+
+/* RESET */
+
+.btn-filter-danger{
+background:#FEE2E2;
+color:#DC2626;
+}
+
+.btn-filter-danger:hover{
+background:#FECACA;
+}
+
+/* EXCEL */
+
+.btn-filter-success{
+background:#DCFCE7;
+color:#16A34A;
+}
+
+.btn-filter-success:hover{
+background:#BBF7D0;
+}
+
+/* CONTAINER FILTRE */
+
+.filter-container{
+background:white;
+padding:18px;
+border-radius:14px;
+margin-bottom:25px;
+border:1px solid #E2E8F0;
+}
+
+/* INPUT */
+
+.modern-input{
+border-radius:10px;
+border:1px solid #E2E8F0;
+background:#F8FAFC;
+padding:9px 12px;
+}
+
+/* INPUT FOCUS */
+
+.modern-input:focus{
+border-color:#2563EB;
+box-shadow:0 0 0 2px rgba(37,99,235,0.1);
+}
+
+.btn-view{
+background:#2563EB;
+color:white;
+border-radius:8px;
+width:34px;
+height:34px;
+display:flex;
+align-items:center;
+justify-content:center;
+border:none;
+}
+
+.btn-view:hover{
+background:#1D4ED8;
+}
+
+/* ANIMATION PAGE */
+
+.fade-in{
+animation:fadeInPage 0.5s ease;
+}
+
+@keyframes fadeInPage{
+from{
+opacity:0;
+transform:translateY(10px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+}
+
+/* HOVER TABLE */
+
+.modern-table tbody tr{
+transition:all 0.25s ease;
+}
+
+.modern-table tbody tr:hover{
+background:#F1F5F9;
+transform:scale(1.01);
+}
+/* ANIMATION BOUTONS */
+
+.btn-icon{
+transition:all 0.2s ease;
+}
+
+.btn-icon:hover{
+transform:translateY(-2px);
+box-shadow:0 5px 12px rgba(0,0,0,0.1);
+}
+
+.filter-container{
+transition:all 0.25s ease;
+}
+
+.filter-container:hover{
+box-shadow:0 12px 25px rgba(0,0,0,0.08);
+}
+</style>
+
+</head>
+
+<body>
+
+<!-- SIDEBAR -->
+<div class="sidebar">
+
+    <h4 class="text-primary mb-4">
+        <i class="bi bi-hospital"></i> Admin
+    </h4>
+
+    <!-- DASHBOARD -->
+    <a href="#" class="menu-item active">
+        <i class="bi bi-speedometer2"></i> Dashboard
+    </a>
+
+    <a href="utilisateur.html" class="menu-item">
+        <i class="bi bi-people"></i> Gestion Utilisateurs
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-calendar-check"></i> Rendez-vous
+    </a>
+
+     <a href="consultation.html" class="menu-item">
+        <i class="bi bi-clipboard2-pulse"></i> Consultations
+    </a>
+
+    <a href="admission.html" class="menu-item">
+        <i class="bi bi-door-open"></i> Admissions
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-flask"></i> Examens
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-heart-pulse"></i> Tri
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-gear"></i> Profil
+    </a>
+
+    <a href="#" class="menu-item text-danger">
+        <i class="bi bi-box-arrow-right"></i> Déconnexion
+    </a>
+
+</div>
+
+<!-- MAIN CONTENT -->
+
+<div class="main-content fade-in">
+
+<div class="consult-card">
+
+<h4 class="page-title mb-4">
+<i class="bi bi-clipboard2-pulse"></i>
+Rapport des consultations
+</h4>
+
+
+<!-- FILTERS -->
+
+<div class="filter-container">
+
+<div class="row g-3 align-items-center">
+
+<div class="col-md-4">
+<input type="text"
+class="form-control modern-input"
+placeholder="Rechercher patient">
+</div>
+
+<div class="col-md-3">
+<input type="date" class="form-control modern-input">
+</div>
+
+<div class="col-md-3">
+<input type="date" class="form-control modern-input">
+</div>
+
+<div class="col-md-2 d-flex gap-2">
+
+<button class="btn btn-icon btn-filter-primary" title="Filtrer">
+<i class="bi bi-funnel"></i>
+</button>
+
+<button class="btn btn-icon btn-filter-danger" title="Effacer">
+<i class="bi bi-x-circle"></i>
+</button>
+
+<button class="btn btn-icon btn-filter-success" title="Excel">
+<i class="bi bi-file-earmark-excel"></i>
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- TABLE -->
+
+<div class="table-responsive">
+
+<table class="table modern-table">
+
+<thead>
+
+<tr>
+
+<th>Médecin</th>
+
+<th>Date</th>
+
+<th>ID Patient</th>
+
+<th>Prénom</th>
+
+<th>Nom</th>
+
+<th>Motif</th>
+
+<th>Diagnostic</th>
+
+<th></th>
+
+</tr>
+
+</thead>
+
+<tbody>
+
+
+<tr>
+
+<td>Dr Mariama DIOP</td>
+
+<td>10/01/2025</td>
+
+<td>25679</td>
+
+<td>Mamadou</td>
+
+<td>Diallo</td>
+
+<td>Douleur abdominale</td>
+
+<td>Suspicion appendicite</td>
+
+<td>
+
+<button class="btn btn-view" title="Voir consultation">
+<i class="bi bi-eye"></i>
+</button>
+
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>Dr Adama SANE</td>
+
+<td>09/01/2025</td>
+
+<td>25680</td>
+
+<td>Fatou</td>
+
+<td>Diop</td>
+
+<td>Traumatisme bras</td>
+
+<td>Fracture</td>
+
+<td>
+
+<button class="btn btn-view" title="Voir consultation">
+<i class="bi bi-eye"></i>
+</button>
+</td>
+
+</tr>
+
+
+<tr>
+
+<td>Dr Ibrahima Diallo</td>
+
+<td>08/01/2025</td>
+
+<td>25681</td>
+
+<td>Oumar</td>
+
+<td>Ba</td>
+
+<td>Douleur thoracique</td>
+
+<td>Angine de poitrine</td>
+
+<td>
+
+<button class="btn btn-view" title="Voir consultation">
+<i class="bi bi-eye"></i>
+</button>
+
+</td>
+
+</tr>
+
+
+</tbody>
+
+</table>
+
+</div>
+
+
+</div>
+
+</div>
+
+</body>
+</html>

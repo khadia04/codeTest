@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        /* LAYOUT */
+
+body{
+background:#F8FAFC;
+font-family:'Inter',sans-serif;
+margin:0;
+}
+
+/* SIDEBAR */
+
+.sidebar{
+width:240px;
+height:100vh;
+position:fixed;
+left:0;
+top:0;
+background:white;
+padding:25px 20px;
+border-right:1px solid #E2E8F0;
+}
+
+/* MENU */
+
+.menu-item{
+display:flex;
+align-items:center;
+gap:10px;
+padding:10px 12px;
+border-radius:10px;
+text-decoration:none;
+color:#334155;
+margin-bottom:8px;
+transition:0.2s;
+}
+
+.menu-item:hover{
+background:#F1F5F9;
+}
+
+.menu-item.active{
+background:linear-gradient(135deg,#2563EB,#1D4ED8);
+color:white;
+}
+
+/* CONTENU */
+
+.main-content{
+margin-left:240px;
+padding:40px;
+}
+        /* CARD */
+.user-detail-card{
+background:white;
+border-radius:20px;
+padding:30px;
+box-shadow:0 15px 40px rgba(0,0,0,0.05);
+}
+
+/* AVATAR */
+.avatar-lg{
+width:70px;
+height:70px;
+border-radius:50%;
+background:#DBEAFE;
+color:#1D4ED8;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+font-weight:600;
+}
+
+/* LABEL */
+.info-label{
+font-size:13px;
+color:#64748B;
+font-weight:600;
+margin-bottom:3px;
+display:block;
+}
+
+/* VALUE */
+.info-value{
+font-size:16px;
+font-weight:500;
+}
+
+/* ROLE */
+.role-specialiste{
+background:#EDE9FE;
+color:#6D28D9;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+}
+
+.user-profile-card{
+background:white;
+border-radius:20px;
+padding:35px;
+box-shadow:0 20px 45px rgba(0,0,0,0.05);
+}
+
+/* HEADER */
+.profile-header{
+display:flex;
+align-items:center;
+gap:25px;
+}
+
+/* AVATAR */
+.profile-avatar{
+width:110px;
+height:110px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid #F1F5F9;
+}
+
+.avatar-container{
+position:relative;
+}
+
+.upload-btn{
+position:absolute;
+bottom:0;
+right:0;
+background:#2563EB;
+color:white;
+width:35px;
+height:35px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+cursor:pointer;
+}
+
+/* TITRE SECTION */
+.section-title{
+font-weight:600;
+margin-bottom:20px;
+color:#334155;
+}
+
+/* INFO BOX */
+.info-box{
+display:flex;
+gap:15px;
+align-items:flex-start;
+background:#F8FAFC;
+padding:14px;
+border-radius:10px;
+margin-bottom:15px;
+}
+
+.info-box i{
+font-size:20px;
+color:#2563EB;
+}
+
+.info-box label{
+font-size:13px;
+color:#64748B;
+display:block;
+margin-bottom:2px;
+}
+
+.info-box p{
+margin:0;
+font-weight:500;
+}
+
+/* ROLE BADGE */
+.role-specialiste{
+background:#EDE9FE;
+color:#6D28D9;
+padding:6px 12px;
+border-radius:20px;
+font-size:13px;
+}
+
+/* ACTIONS */
+.profile-actions button{
+width:45px;
+height:45px;
+border-radius:10px;
+font-size:18px;
+}
+
+    </style>
+</head>
+<body>
+
+    <!-- SIDEBAR -->
+<div class="sidebar">
+
+    <h4 class="text-primary mb-4">
+        <i class="bi bi-hospital"></i> Admin
+    </h4>
+
+    <!-- DASHBOARD -->
+    <a href="#" class="menu-item active">
+        <i class="bi bi-speedometer2"></i> Dashboard
+    </a>
+
+    <a href="utilisateur.html" class="menu-item">
+        <i class="bi bi-people"></i> Gestion Utilisateurs
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-calendar-check"></i> Rendez-vous
+    </a>
+
+     <a href="consultation.html" class="menu-item">
+        <i class="bi bi-clipboard2-pulse"></i> Consultations
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-door-open"></i> Admissions
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-flask"></i> Examens
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-heart-pulse"></i> Tri
+    </a>
+
+    <a href="#" class="menu-item">
+        <i class="bi bi-gear"></i> Profil
+    </a>
+
+    <a href="#" class="menu-item text-danger">
+        <i class="bi bi-box-arrow-right"></i> Déconnexion
+    </a>
+
+</div>
+    <div class="main-content">
+
+<div class="user-profile-card">
+
+<!-- HEADER -->
+<div class="profile-header">
+
+<div class="avatar-container">
+
+<img src="https://via.placeholder.com/120" class="profile-avatar" id="preview">
+
+<label class="upload-btn">
+<i class="bi bi-camera"></i>
+<input type="file" hidden id="uploadPhoto">
+</label>
+
+</div>
+
+<div class="profile-info">
+
+<h3 class="mb-1">Abdaramani Ndiaye</h3>
+
+<span class="badge role-specialiste">
+Médecin Spécialiste
+</span>
+
+</div>
+
+</div>
+
+<hr>
+
+<!-- SECTION INFOS -->
+<h5 class="section-title">
+<i class="bi bi-person-circle"></i> Informations utilisateur
+</h5>
+
+<div class="row g-4">
+
+<!-- COLONNE GAUCHE -->
+<div class="col-md-6">
+
+<div class="info-box">
+<i class="bi bi-person"></i>
+<div>
+<label>Nom complet</label>
+<p>Abdaramani Ndiaye</p>
+</div>
+</div>
+
+<div class="info-box">
+<i class="bi bi-person-badge"></i>
+<div>
+<label>Nom utilisateur</label>
+<p>abdaramani.ndiaye</p>
+</div>
+</div>
+
+<div class="info-box">
+<i class="bi bi-envelope"></i>
+<div>
+<label>Email</label>
+<p>abdaramani.ndiaye@hdj.sn</p>
+</div>
+</div>
+
+</div>
+
+<!-- COLONNE DROITE -->
+<div class="col-md-6">
+
+<div class="info-box">
+<i class="bi bi-telephone"></i>
+<div>
+<label>Téléphone</label>
+<p>777777777</p>
+</div>
+</div>
+
+<div class="info-box">
+<i class="bi bi-hospital"></i>
+<div>
+<label>Service</label>
+<p>Urgence</p>
+</div>
+</div>
+
+<div class="info-box">
+<i class="bi bi-clipboard-pulse"></i>
+<div>
+<label>Spécialités</label>
+<p>Non renseigné</p>
+</div>
+</div>
+
+</div>
+
+</div>
+
+<!-- ACTIONS -->
+<div class="profile-actions mt-4">
+
+<button class="btn btn-secondary" title="Retour">
+<i class="bi bi-arrow-left"></i>
+</button>
+
+<a href="modifUser.html"><button class="btn btn-warning" title="Modifier">
+<i class="bi bi-pencil"></i></a>
+</button>
+
+<button class="btn btn-outline-danger" title="Réinitialiser mot de passe">
+<i class="bi bi-key"></i>
+</button>
+
+</div>
+
+</div>
+</div>
+</body>
+</html>
